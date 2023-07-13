@@ -149,7 +149,18 @@ Option 4
 ```
 
 Question: What actions are allowed for EC2 instances and S3 objects based on this policy? What specific resources are included?
-
+-   Actions for EC2 instances:
+    -   ec2: RunInstances - Enable to run instances
+    -   ec2: TerminateInstances - Enable to terminate instances
+-   Actions for S3 objects:
+    -   s3: GetObject - Enable to get objects from S3
+    -   s3: PutObject - Enable to put/upload objects to S3
+-   Resources included for EC2 instances:
+    -   arn:aws:ec2:us-east-1:123456789012:instance/* 
+    (all EC2 instances in the "us-east-1" region and in the "123456789012" account)
+-   Resources included for S3 objects:
+    -   arn:aws:s3:::example-bucket/*
+    (all objects within the "example-bucket" S3 bucket)
 
 2. 
 ```
