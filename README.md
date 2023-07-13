@@ -3,7 +3,7 @@
 ## Students: FENG & FOUR
 cf. : Requirements: https://github.com/pascalito007/efrei-cloud-bigdata/tree/master/capstone-project
 
-# I. 
+# I. App deployment
 
 
 
