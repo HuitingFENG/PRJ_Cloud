@@ -213,7 +213,13 @@ Question: Under what condition does this policy allow access to VPC-related info
 ```
 
 Question: What actions are allowed on the "example-bucket" and its objects based on this policy? What specific prefixes are specified in the condition?
-
+-   Actions allowed on the "example-bucket" and the objects of "example-bucket":
+    -   s3:GetObject - Enable to get objects from the "example-bucket" bucket
+    -   s3:PutObject - Enable to put/upload objects to the "example-bucket" bucket
+    -   s3:ListBucket - Enable to list/display the objects on the "example-bucket" bucket
+-   Prefixes specified in the condition:
+    -   documents/* (all objects having a prefix of "documents/" on the "example-bucket" bucket)
+    -   images/* (all objects having a prefix of "images/" on the "example-bucket" bucket)
 
 4. 
 ```
