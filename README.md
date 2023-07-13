@@ -103,6 +103,7 @@ Option 4. Without public IP addresses, in a subnet with a default route to a net
     }
   ]
 }```
+
 Question: What actions are allowed for EC2 instances and S3 objects based on this policy? What specific resources are included?
 
 
