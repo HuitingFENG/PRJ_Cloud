@@ -267,8 +267,16 @@ Question: What actions are allowed for IAM users based on this policy? How are t
 Questions:
 
 -   Which AWS service does this policy grant you access to?
+    -   AWS IAM (Identity and Access Management service)
 -   Does it allow you to create an IAM user, group, policy, or role?
+    -   No, it don't allow to create an IAM user, group, policy, or role, because the specified actions allowed are "iam:Get*" and "iam:List*". That means only get/read or list/display information from IAM. 
 -   Go to https://docs.aws.amazon.com/IAM/latest/UserGuide/ and in the left navigation expand Reference > Policy Reference > Actions, Resources, and Condition Keys. Choose Identity And Access Management. Scroll to the Actions Defined by Identity And Access Management list.��Name at least three specific actions that the iam:Get* action allows.
+    -   iam:GetSShPublicKey - Retrieve the specified SSH public key, including metadata about the key
+    -   iam:GetUser - Retrieve information about the specified IAM user, including the user's creation date, path, unique ID, and ARN
+    -   iam:GetUserPolicy - Retrieve the specified inline policy document that is embedded in the specified IAM user
+```
+https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html
+```
 
 6. 
 ```
