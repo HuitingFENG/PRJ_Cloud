@@ -21,13 +21,13 @@ cf. : Requirements: https://github.com/pascalito007/efrei-cloud-bigdata/tree/mas
 
 2. How can you grant the same level of permissions to multiple users within an account?
 
-Option 1. Apply an AWS Identity and Access Management (IAM) policy to an IAM group
+-   Option 1. Apply an AWS Identity and Access Management (IAM) policy to an IAM group
 
-Option 2. Apply an AWS Identity and Access Management (IAM) policy to an IAM role
+-   Option 2. Apply an AWS Identity and Access Management (IAM) policy to an IAM role
 
-Option 3. Create a resource-based policy
+-   Option 3. Create a resource-based policy
 
-Option 4. Create an organization in AWS Organizations
+-   Option 4. Create an organization in AWS Organizations
 
 
 3. Which statements describe AWS Identity and Access Management (IAM) roles? (Select TWO.)
