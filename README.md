@@ -160,7 +160,7 @@ Question: What actions are allowed for EC2 instances and S3 objects based on thi
     (all EC2 instances in the "us-east-1" region and in the "123456789012" account)
 -   Resources included for S3 objects:
     -   arn:aws:s3:::example-bucket/*
-    (all objects within the "example-bucket" S3 bucket)
+    (all S3 objects within the bucket named "example-bucket")
 
 2. 
 ```
