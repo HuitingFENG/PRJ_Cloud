@@ -15,7 +15,7 @@ cf. : Requirements: https://github.com/pascalito007/efrei-cloud-bigdata/tree/mas
 -   Option 2. IAM users are used to control access to a specific AWS resource
 -   Option 3. Every IAM user for an account mush have a unique name
 -   Option 4. Every IAM user name is unique across all AWS accounts
-        => Option 1 
+    -   Option 1 
 
 
 2. How can you grant the same level of permissions to multiple users within an account?
