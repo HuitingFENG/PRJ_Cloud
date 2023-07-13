@@ -187,7 +187,7 @@ Question: What actions are allowed for EC2 instances and S3 objects based on thi
 ```
 
 Question: Under what condition does this policy allow access to VPC-related information? Which AWS region is specified?
-
+-   This policy allows access to VPC-related information only when the requested region is "us-west-2". The requested region is the region where the client (who sends the request) wants the requests to be executed.
 
 3. 
 ```
