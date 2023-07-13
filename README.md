@@ -243,7 +243,14 @@ Question: What actions are allowed on the "example-bucket" and its objects based
 ```
 
 Question: What actions are allowed for IAM users based on this policy? How are the resource ARNs constructed?
-
+-   Actions allowed:
+    -   iam:CreateUser - Enable owner or related IAM users to create new IAM users
+    -   iam:DeleteUser - Enable owner or related IAM users to delete IAM users
+-   Resource ARNs constructed:
+    -   arn:aws:iam::123456789012:user/${aws:username}
+    -   ARN (Amazon Resource Name): a string to identify and access AWS resources with a specific format (arn:aws:<service>:<region>:<account>:<resource>)
+    -   (Here) using the format: AWS account ID / the owner of resource (123456789012) + the username of the IAM user (${aws:username})
+    -   the format without the specification of region, means this service IAM is global service
 
 5. 
 ```
