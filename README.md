@@ -1,6 +1,5 @@
 # PRJ_Cloud
-### Efrei Paris M1 SE1
-### Students: FENG & FOUR
+### Efrei Paris M1 SE1 Students: FENG & FOUR
 cf. : Requirements: https://github.com/pascalito007/efrei-cloud-bigdata/tree/master/capstone-project
 
 # I. App deployment
