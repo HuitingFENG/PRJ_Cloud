@@ -8,7 +8,7 @@ cf. : Requirements: https://github.com/pascalito007/efrei-cloud-bigdata/tree/mas
 
 
 # II. 10 Quiz
-## 1. Iam Quiz
+## 2-1. Iam Quiz
 1. Which statement describes AWS Identity and Access Management (IAM) users ?
 
 -   Option 1. IAM users are used to control access to a specific AWS resource
@@ -80,7 +80,7 @@ Option 3
 Option 1
 ```
 
-## 2. Network Quiz
+## 2-2. Network Quiz
 1. Which definition describes a virtual private cloud (VPC)?
 
 -   Option 1. A virtual private network (VPN) in the AWS Cloud
