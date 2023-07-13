@@ -316,5 +316,8 @@ Questions:
 
 
 # IV. AWS Quicksight
-
+Cf. : 
+```
+https://www.youtube.com/watch?v=MZGloAruLGQ&ab_channel=DataDoozers
+```
 
