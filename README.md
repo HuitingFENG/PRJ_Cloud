@@ -11,10 +11,10 @@ cf. : Requirements: https://github.com/pascalito007/efrei-cloud-bigdata/tree/mas
 ## 1. Iam Quiz
 1. Which statement describes AWS Identity and Access Management (IAM) users ?
 
-Option 1. IAM users are used to control access to a specific AWS resource
-Option 2. IAM users are used to control access to a specific AWS resource
-Option 3. Every IAM user for an account mush have a unique name
-Option 4. Every IAM user name is unique across all AWS accounts
+    Option 1. IAM users are used to control access to a specific AWS resource
+    Option 2. IAM users are used to control access to a specific AWS resource
+    Option 3. Every IAM user for an account mush have a unique name
+    Option 4. Every IAM user name is unique across all AWS accounts
 
 => Option 1 
 
