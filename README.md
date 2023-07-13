@@ -300,6 +300,7 @@ https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html
 Questions:
 
 -   What actions does the policy allow?
+    -   The policy don't allow user or role to do anything, because AWS's default behavior is to deny, all actions should be denied. Here, this policy denies explicitly two actions: "ec2:RunInstances" and "ec2:StartInstances". If there is only this statement in this policy, all actions are denied. Whereas, if there are other statements with actions allowed, those actions are then allowed by this policy.
 -   Say that the policy included an additional statement object, like this example:
 ```
 {
@@ -309,7 +310,9 @@ Questions:
 ```
 
 -   How would the policy restrict the access granted to you by this additional statement?
+    -   Here, with a new added statement object into the IAM policy, all EC2 actions are allowed, because this statement means exactly allowing all actions for all types of EC2 instances. However, "deny" policies always override "allow" policies. Even though this additional statement allows all actions for all types of EC2 instances, those two actions ("ec2:RunInstances" and "ec2:StartInstances") are not allowed on two types of EC2 instances ("t2.micro" and "t2.small"). Thus, this policy with two statements will allow all actions on all EC2 instances except for running new instance or for starting instance ("t2.micro" and "t2.small"). 
 -   If the policy included both the statement on the left and the statement in question 2, could you terminate an m3.xlarge instance that existed in the account?
+    -   "m3.xlarge" instance is a type of EC2 instance, so we can terminate an "m3.xlarge" instance that existed in the account. These two statements on the policy allow all actions on all EC2 instances except for running new instance or for starting instance ("t2.micro" and "t2.small"). "m3.xlarge" instance then is allowed for all actions, so we can terminate this type of instance.
 
 
 # IV. AWS Quicksight
