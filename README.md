@@ -8,7 +8,7 @@ cf. : Requirements: https://github.com/pascalito007/efrei-cloud-bigdata/tree/mas
 
 
 # II. 10 Quiz
-## Iam Quiz
+## 1. Iam Quiz
 1.
 2.
 3.
@@ -17,7 +17,7 @@ cf. : Requirements: https://github.com/pascalito007/efrei-cloud-bigdata/tree/mas
 6.
 7. 
 
-## Network Quiz
+## 2. Network Quiz
 1.
 2.
 3.
