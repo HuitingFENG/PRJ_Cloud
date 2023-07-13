@@ -267,8 +267,8 @@ Questions:
 
 Questions:
 
-What actions does the policy allow?
-Say that the policy included an additional statement object, like this example:
+-   What actions does the policy allow?
+-   Say that the policy included an additional statement object, like this example:
 ```
 {
   "Effect": "Allow",
@@ -276,8 +276,8 @@ Say that the policy included an additional statement object, like this example:
 }
 ```
 
-How would the policy restrict the access granted to you by this additional statement?
-If the policy included both the statement on the left and the statement in question 2, could you terminate an m3.xlarge instance that existed in the account?
+-   How would the policy restrict the access granted to you by this additional statement?
+-   If the policy included both the statement on the left and the statement in question 2, could you terminate an m3.xlarge instance that existed in the account?
 
 
 # IV. AWS Quicksight
