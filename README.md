@@ -324,4 +324,7 @@ Cf. :
 ```
 https://www.youtube.com/watch?v=MZGloAruLGQ&ab_channel=DataDoozers
 ```
+```
+https://www.youtube.com/watch?v=yDfFBRjHFs0&ab_channel=AmazonQuickSight
+```
 
