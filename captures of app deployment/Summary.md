@@ -45,6 +45,5 @@
 
 ## VIII. Delete all used resources
 
-
 ## IX. Annex
 Cf. : https://www.youtube.com/watch?v=aBgDXd_Brlw&ab_channel=DevOps%26CloudwithAryya 
