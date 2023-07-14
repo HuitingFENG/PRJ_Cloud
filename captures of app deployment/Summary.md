@@ -44,3 +44,5 @@
 2. Create parameters with those given values
 
 ## VIII. Delete all used resources
+
+Cf. : https://www.youtube.com/watch?v=aBgDXd_Brlw&ab_channel=DevOps%26CloudwithAryya 
