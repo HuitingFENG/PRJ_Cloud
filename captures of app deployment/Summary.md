@@ -46,4 +46,16 @@
 ## VIII. Delete all used resources
 
 ## IX. Annex
-Cf. : https://www.youtube.com/watch?v=aBgDXd_Brlw&ab_channel=DevOps%26CloudwithAryya 
+Cf. : 
+```
+https://www.youtube.com/watch?v=aBgDXd_Brlw&ab_channel=DevOps%26CloudwithAryya 
+```
+
+deploy a website into the instance:
+```
+https://www.youtube.com/watch?v=7e_mjVUV-zA&ab_channel=AMonkinCloud%E2%98%81%EF%B8%8F
+```
+wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+
+chmod 400 prj.pem                                       
+ssh -i prj.pem ec2-user@ec2-35-180-211-95.eu-west-3.compute.amazonaws.com
