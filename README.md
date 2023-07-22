@@ -413,8 +413,10 @@ Questions:
 
 # IV. AWS Quicksight 
 
+## 4-1. Screenshots
 Check the above folder related to the AWS Quicksight
 
+## 4-2. Annexes
 ```
 https://www.youtube.com/watch?v=MZGloAruLGQ&ab_channel=DataDoozers
 ```
