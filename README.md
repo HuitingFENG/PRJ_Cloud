@@ -7,18 +7,6 @@ https://github.com/pascalito007/efrei-cloud-bigdata/tree/master/capstone-project
 
 
 # I. App deployment
-Cf. : 
-```
-https://www.youtube.com/watch?v=OZuNZKdqdSk 
-```
-Subnet calculator:
-```
-https://community.spiceworks.com/tools/subnet-calc/ 
-```
-Architecture Design Diagram:
-```
-https://lucid.app/lucidchart/dd465d1c-c17d-462c-be25-6509db90d5b2/edit?viewport_loc=-760%2C-56%2C1755%2C1515%2C0_0&invitationId=inv_4d698b3f-0b6f-495f-82ed-dd17c315d030 
-```
 ## 1-1. Architecture design diagram
 ![Architecture.png](./images/Architecture.png "Architecture.png")
 ![Subnets.png](./images/Subnets.png "Subnets.png")
@@ -51,12 +39,69 @@ From the above architecture on AWS, we can analyze those components as below:
 
 
 ## 1-2. Steps of APP deployment on AWS
-1. Create VPC and subnets
-2. Set up database
-3. Configure parameters store
-4. Make final tests 
+
+### 1-2-1. Setup AWS environment
+1. Log in AWS account
+2. Choose Paris as region
+
+### 1-2-2. Create a VPC
+1. Create a new VPC
+2. Fill in fields 
+3. Mark down VPC ID
+
+### 1-2-3. Create a public and a private subnet
+1. Create two subnets (public and private)
+2. Fill in fields
+
+### 1-2-4. Create an EC2 instance
+1. Create an instance using Cloud9
+2. Choose t2.micro and configure details (VPC and public subnet)
+3. Configure SG to allow SSH (port 22) from my IP
+4. Run the instance
+5. Mark down instance ID
+
+### 1-2-5. Setup RDS instance
+1. Create database
+2. Select MySQL, use Free Tier, specifier DB instance identifier & master username & password
+3. Choose VPC & private subnet
+4. Enable VPC SG and configure inbound rule to allow traffic from EC2 instance
+5. Give the database a name
+6. Review everything and click "Create database"
+
+### 1-2-6. Install and configure the PHP application
+1. SSH into the EC2 instance 
+2. Use the given script to install packages & website files & SQL file
+3. Update PHP application with RDS endpoint and database credentials
+4. Move the PHP application to the Apache directory 
+5. Import SQL file to the RDS instance
+6. Test application by using the previous EC2 public IP address 
+
+### 1-2-7. Setup AWS Systems Manager Parameter Store
+1. Go to Parameter Store
+2. Create parameters with those given values
+
+### 1-2-8. Delete all used resources
 
 
+## 1-3. Annexes
+Cf. : 
+Subnet calculator:
+```
+https://community.spiceworks.com/tools/subnet-calc/ 
+```
+Architecture Design Diagram:
+```
+https://lucid.app/lucidchart/dd465d1c-c17d-462c-be25-6509db90d5b2/edit?viewport_loc=-760%2C-56%2C1755%2C1515%2C0_0&invitationId=inv_4d698b3f-0b6f-495f-82ed-dd17c315d030 
+```
+```
+https://www.youtube.com/watch?v=OZuNZKdqdSk 
+```
+```
+https://www.youtube.com/watch?v=aBgDXd_Brlw&ab_channel=DevOps%26CloudwithAryya 
+```
+```
+https://www.youtube.com/watch?v=7e_mjVUV-zA&ab_channel=AMonkinCloud%E2%98%81%EF%B8%8F
+```
 
 
 # II. 10 Quiz
