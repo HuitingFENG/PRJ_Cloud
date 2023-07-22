@@ -19,7 +19,7 @@ Architecture Design Diagram:
 ```
 https://lucid.app/lucidchart/dd465d1c-c17d-462c-be25-6509db90d5b2/edit?viewport_loc=-760%2C-56%2C1755%2C1515%2C0_0&invitationId=inv_4d698b3f-0b6f-495f-82ed-dd17c315d030 
 ```
-
+## 1-1. Architecture design diagram
 ![Architecture.png](./images/Architecture.png "Architecture.png")
 ![Subnets.png](./images/Subnets.png "Subnets.png")
 
@@ -49,7 +49,11 @@ From the above architecture on AWS, we can analyze those components as below:
 -   Application security group (port 80 inbound): allow inbound HTTP traffic (port 80). When end users navigate to a website using a standard HTTP request, their browser is connecting to the server on port 80. End users firstly connect to ALB, then ALB's listener receives the connection requests from clients, then ALB forwards this request to frontend server (it's target instance) by following the configured routing rules. The connections between ALB and application are within Amazon VPC, the private network, and are not exposed directly to the public Internet. The frontend-server don't connect directly to the ALB, because it just waits to accept incoming connections from the ALB.
 -   Database security group (port 3306 inbound): allow inbound MySQL traffic (port 3306) but only from the application server which is the authorized sources. Since the external internet won't connect to this database, the port 80 won't be added. Here, database connections are just from application servers, not from ALB or end users.
 
-
+## 1-2. Steps of APP deployment on AWS
+1. Create VPC and subnets
+2. Set up database
+3. Configure parameters store
+4. Make final tests 
 
 
 
