@@ -32,22 +32,22 @@ From the above architecture on AWS, we can analyze those components as below:
 3. Parameter Store (AWS Systems Manager): where configuration data and sensitive information (database) are stored and can be retrieved by some specific role.
 4. Region: AWS has different infrastructures in different region, and each region can have different isolated locations named as Availability Zones. We use 2 different availability zones, which can prevent that one server's crush in one availability zone cause the whole crush of application. In each availability zone, there are 2 frontend servers and 2 backend servers, but only one Bastion Host will be sufficient. Having only one Bastion Host can create a single controlled entry point to the network, and reduce the security issues while being monitoring by system administrators or developers.
 5. VPC (10.0.0.0/24): our isolated network on AWS
-6. Public Subnet 1 (10.0.0.0/26): a part of VPC's IPv4 address range in an availability zone, where some created EC2 instances can have direct access to the Internet. 
-7. Public Subnet 2 (10.0.0.64/26): a part of VPC's IPv4 address range but in another availability zone
-8. Private Subnet 1 (10.0.0.128/26): a part of VPC's IPv4 address range in an availability zone, where some created EC2 instances can not have direct access to the Internet, especially the database, because we need to secure it by preventing unallowed users from connecting directly to the database. 
-9. Private Subnet 2 (10.0.0.192/26): a part of VPC's IPv4 address range but in another availability zone, where is the second database (EC2 instance).
-10. Bastion Host: the only entry point to our AWS resources, which enables the access to an internal network from an external network (the internet).
-11. Application Load Balancer (ALB): helps link automatically the incoming traffic into different servers, and helps adjust resources to meet those traffic demands
-12. frontend-server: server running the PHP application (in 2 different availability zones)
-13. backend-server: server storing the database (in 2 different availability zones)
-14. NAT gateway: allow resources in the private subnet to connect to the external internet but the external internet cannot directly access to the resources in the private subnet. This way can protect those resources in the private subnet (database).
-15. Internet gateway: connect AWS resources with the external network.
-16. TCP Port 3306: the standard TCP port that MySQL database servers can listen to. It should be configured while creating the security group.
-17. 4 security groups:
+-   Public Subnet 1 (10.0.0.0/26): a part of VPC's IPv4 address range in an availability zone, where some created EC2 instances can have direct access to the Internet. 
+-   Public Subnet 2 (10.0.0.64/26): a part of VPC's IPv4 address range but in another availability zone
+-   Private Subnet 1 (10.0.0.128/26): a part of VPC's IPv4 address range in an availability zone, where some created EC2 instances can not have direct access to the Internet, especially the database, because we need to secure it by preventing unallowed users from connecting directly to the database. 
+-   Private Subnet 2 (10.0.0.192/26): a part of VPC's IPv4 address range but in another availability zone, where is the second database (EC2 instance).
+6. Bastion Host: the only entry point to our AWS resources, which enables the access to an internal network from an external network (the internet). 
+7. Application Load Balancer (ALB): helps link automatically the incoming traffic into different servers, and helps adjust resources to meet those traffic demands
+8. frontend-server: server running the PHP application (in 2 different availability zones)
+9. backend-server: server storing the database (in 2 different availability zones)
+10. NAT gateway: allow resources in the private subnet to connect to the external internet but the external internet cannot directly access to the resources in the private subnet. This way can protect those resources in the private subnet (database). Also, it enables connect to other AWS services. For instance, the backend-server's (database) update can be downloaded by using NAT gateway.
+11. Internet gateway: connect AWS resources with the external network.
+12. TCP Port 3306: the standard TCP port that MySQL database servers can listen to. It should be configured while creating the security group.
+13. 4 security groups (as virtual firewalls for instances to control inbound and outbound traffic): 
 -   Bastion host security group (port 22 inbound): allow inbound SSH traffic (port 22) for remote operations made by System administrators or developers.
--   ALB security group (port 80 inbound): allow inbound HTTP traffic (port 80)
--   Application security group (port 80 inbound): allow inbound HTTP traffic (port 80)
--   Database security group (port 80 inbound): allow inbound MySQL traffic (port 3306) but only from the application server which is the authorized sources.
+-   ALB security group (port 80 inbound): allow inbound HTTP traffic (port 80) from end users. However, we can add an inbound rule with the source as 0.0.0.0/0 for our application load balancer's security group, which enables to accept traffic from everyone in everywhere. This way won't enable to connect directly to other instances/servers, because the ALB will control traffic to target instances by following the created routing rules. Also, other settings about IAM roles and policies, security groups are also important.
+-   Application security group (port 80 inbound): allow inbound HTTP traffic (port 80). When end users navigate to a website using a standard HTTP request, their browser is connecting to the server on port 80. End users firstly connect to ALB, then ALB's listener receives the connection requests from clients, then ALB forwards this request to frontend server (it's target instance) by following the configured routing rules. The connections between ALB and application are within Amazon VPC, the private network, and are not exposed directly to the public Internet. The frontend-server don't connect directly to the ALB, because it just waits to accept incoming connections from the ALB.
+-   Database security group (port 3306 inbound): allow inbound MySQL traffic (port 3306) but only from the application server which is the authorized sources. Since the external internet won't connect to this database, the port 80 won't be added. Here, database connections are just from application servers, not from ALB or end users.
 
 
 
