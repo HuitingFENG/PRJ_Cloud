@@ -45,6 +45,8 @@ From the above architecture on AWS, we can analyze those components as below:
 ## 1-2. Steps of APP deployment on AWS
 There are three versions while trying to deploy the APP and the final version is version 3 where the application is successfully deployed. The version 1 is our first try but a problem related to download MySQL was happened, so we cannot go further to deploy this application. The version 2 is a mix of 2 solutions, and one of the solution is following the above described architecture design. Whereas another problem is we are not familiar with the Application Loal Balancer and Auto Scaling Group etc, so this above solution was simplified by just using what we learned from the course, mainly by following the steps of challenge lab (creating a dynamic website for the Café). Since the version 2 combines a fail solution and a successful solution, a new version 3 is created to present all the final settings and the final demonstration. Below is the real final architecture design diagram used by us. The steps are general steps and all details can be seen from the folder of version3. 
 
+![Architecture_bis.png](./images/Architecture_bis.png "Architecture_bis.png")
+
 ### 1-2-1. Sign in AWS environment
 1. Log in AWS account
 2. Choose Paris as region (eu-west-3)
