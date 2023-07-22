@@ -371,4 +371,4 @@ https://www.youtube.com/watch?v=MZGloAruLGQ&ab_channel=DataDoozers
 https://www.youtube.com/watch?v=yDfFBRjHFs0&ab_channel=AmazonQuickSight
 ```
 
-See captures under the 'captures of AWS quicksight' folder
+=> See captures under the 'captures of AWS quicksight' folder
