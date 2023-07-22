@@ -7,6 +7,49 @@ https://github.com/pascalito007/efrei-cloud-bigdata/tree/master/capstone-project
 
 
 # I. App deployment
+Cf. : 
+```
+https://www.youtube.com/watch?v=OZuNZKdqdSk 
+```
+Subnet calculator:
+```
+https://community.spiceworks.com/tools/subnet-calc/ 
+```
+Architecture Design Diagram:
+```
+https://lucid.app/lucidchart/dd465d1c-c17d-462c-be25-6509db90d5b2/edit?viewport_loc=-760%2C-56%2C1755%2C1515%2C0_0&invitationId=inv_4d698b3f-0b6f-495f-82ed-dd17c315d030 
+```
+
+![Architecture.png](./images/Architecture.png "Architecture.png")
+![Subnets.png](./images/Subnets.png "Subnets.png")
+
+From the above architecture on AWS, we can analyze those components as below:
+1. AWS Cloud: we use the cloud environment provided by AWS and all our resources will host on this cloud environment.
+2. 3 types of IAM role:
+-   Inventory Application Role: can access to the Parameter Store and retrieve all necessary information linked to database.
+-   End users: can link to Application Load Balancer, then go to navigate the web browser.
+-   System administrators or developers: can use this only access to link to the Bastion Host, then can configure or manage other servers.
+3. Parameter Store (AWS Systems Manager): where configuration data and sensitive information (database) are stored and can be retrieved by some specific role.
+4. Region: AWS has different infrastructures in different region, and each region can have different isolated locations named as Availability Zones. We use 2 different availability zones, which can prevent that one server's crush in one availability zone cause the whole crush of application. In each availability zone, there are 2 frontend servers and 2 backend servers, but only one Bastion Host will be sufficient. Having only one Bastion Host can create a single controlled entry point to the network, and reduce the security issues while being monitoring by system administrators or developers.
+5. VPC (10.0.0.0/24): our isolated network on AWS
+6. Public Subnet 1 (10.0.0.0/26): a part of VPC's IPv4 address range in an availability zone, where some created EC2 instances can have direct access to the Internet. 
+7. Public Subnet 2 (10.0.0.64/26): a part of VPC's IPv4 address range but in another availability zone
+8. Private Subnet 1 (10.0.0.128/26): a part of VPC's IPv4 address range in an availability zone, where some created EC2 instances can not have direct access to the Internet, especially the database, because we need to secure it by preventing unallowed users from connecting directly to the database. 
+9. Private Subnet 2 (10.0.0.192/26): a part of VPC's IPv4 address range but in another availability zone, where is the second database (EC2 instance).
+10. Bastion Host: the only entry point to our AWS resources, which enables the access to an internal network from an external network (the internet).
+11. Application Load Balancer (ALB): helps link automatically the incoming traffic into different servers, and helps adjust resources to meet those traffic demands
+12. frontend-server: server running the PHP application (in 2 different availability zones)
+13. backend-server: server storing the database (in 2 different availability zones)
+14. NAT gateway: allow resources in the private subnet to connect to the external internet but the external internet cannot directly access to the resources in the private subnet. This way can protect those resources in the private subnet (database).
+15. Internet gateway: connect AWS resources with the external network.
+16. TCP Port 3306: the standard TCP port that MySQL database servers can listen to. It should be configured while creating the security group.
+17. 4 security groups:
+-   Bastion host security group (port 22 inbound): allow inbound SSH traffic (port 22) for remote operations made by System administrators or developers.
+-   ALB security group (port 80 inbound): allow inbound HTTP traffic (port 80)
+-   Application security group (port 80 inbound): allow inbound HTTP traffic (port 80)
+-   Database security group (port 80 inbound): allow inbound MySQL traffic (port 3306) but only from the application server which is the authorized sources.
+
+
 
 
 
