@@ -84,7 +84,6 @@ From the above architecture on AWS, we can analyze those components as below:
 
 
 ## 1-3. Annexes
-Cf. : 
 Subnet calculator:
 ```
 https://community.spiceworks.com/tools/subnet-calc/ 
@@ -412,8 +411,8 @@ Questions:
     -   "m3.xlarge" instance is a type of EC2 instance, so we can terminate an "m3.xlarge" instance that existed in the account. These two statements on the policy allow all actions on all EC2 instances except for running new instance or for starting instance ("t2.micro" and "t2.small"). "m3.xlarge" instance then is allowed for all actions, so we can terminate this type of instance.
 
 
-# IV. AWS Quicksight
-Cf. : 
+# IV. AWS Quicksight (under one of the above folder)
+
 ```
 https://www.youtube.com/watch?v=MZGloAruLGQ&ab_channel=DataDoozers
 ```
@@ -421,4 +420,3 @@ https://www.youtube.com/watch?v=MZGloAruLGQ&ab_channel=DataDoozers
 https://www.youtube.com/watch?v=yDfFBRjHFs0&ab_channel=AmazonQuickSight
 ```
 
-=> See captures under the 'captures of AWS quicksight' folder
