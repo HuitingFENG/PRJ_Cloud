@@ -47,42 +47,46 @@ There are three versions while trying to deploy the APP and the final version is
 1. Log in AWS account
 2. Choose Paris as region (eu-west-3)
 
-### 1-2-2. Create VPC and subnets (public + private)
+### 1-2-2. Create VPC and subnets 
 1. Create a new VPC: (10.0.0.0/24)
-2. Create two subnets (public and private): here 2 more subnets are created but not being used in the final version
+2. Create two subnets (public and private): here 2 more subnets are created but not being used in the final version, and must ensure to enable the IPv4 addresses auto-sign for all subnets' configurations
 3. Create one internet gateway and attach it to VPC
 4. Create route tables including one public route table (linked to VPC and public subnet(s)) and two private route tables (linked to VPC)
+5. Create 4 security groups (just created in version2 but not used in version3) and the final version3 creates a new security group for instance using Cloud9
 
-### 1-2-3. Create security groups
-1. 
-2. Fill in fields
+### 1-2-3. Create Application Load Balancer and Auto Scaling group
+Make some tries here by following the tutorial but failed and this step can be ignored because the final version is simplified without using ALB and Auto Scaling group.  
+
 
 ### 1-2-4. Create an EC2 instance
 1. Create an instance using Cloud9
 2. Choose t2.micro and configure details (VPC and public subnet)
-3. Configure SG to allow SSH (port 22) from my IP
-4. Run the instance
-5. Mark down instance ID
+3. Configure SG to allow SSH (port 22) from my IP (using in the version1 but not version2 & version3)
+4. Configure SG to allow HTTP (port 80) and HTTPS(port 443)
+5. Connect to it and open the Cloud9 IDE
+6. Ready to write command lines to download the necessary packages and the PHP application and the SQL file
 
 ### 1-2-5. Setup RDS instance
 1. Create database
-2. Select MySQL, use Free Tier, specifier DB instance identifier & master username & password
+2. Select MySQL, use Free Tier, specifier DB instance identifier (db) & master username (admin) & password (adminadmin)
 3. Choose VPC & private subnet
 4. Enable VPC SG and configure inbound rule to allow traffic from EC2 instance
-5. Give the database a name
 6. Review everything and click "Create database"
 
-### 1-2-6. Install and configure the PHP application
-1. SSH into the EC2 instance 
-2. Use the given script to install packages & website files & SQL file
-3. Update PHP application with RDS endpoint and database credentials
-4. Move the PHP application to the Apache directory 
-5. Import SQL file to the RDS instance
-6. Test application by using the previous EC2 public IP address 
-
-### 1-2-7. Setup AWS Systems Manager Parameter Store
+### 1-2-6. Setup AWS Systems Manager Parameter Store and IAM roles
 1. Go to Parameter Store
-2. Create parameters with those given values
+2. Create parameters with those given values (endpoint, database, password, username)
+3. Go to IAM
+4. Create two roles (Inventory_role + System_administrators_developers_role) 
+5. Give some appropriate permissions to those roles
+
+### 1-2-7. Install and configure the PHP application
+1. SSH into the EC2 instance from my local machine (in version1) but do this step in Cloud9 IDE directly (in version2 and version3)
+2. Use the given script to install packages & website files & SQL file
+3. Move the PHP application to the Apache directory 
+4. Import SQL file to the RDS instance and make some queries to fetch the data
+5. (in the new browser tab) try to load the application by using the previous EC2 public IP address at http://<public-ip>
+6. Test the application
 
 ### 1-2-8. Delete all used resources
 
