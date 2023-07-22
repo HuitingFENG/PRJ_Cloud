@@ -1,5 +1,7 @@
 # PRJ_Cloud
-### Efrei Paris M1 SE1 Students: FENG & FOUR
+### Efrei Paris M1 SE1 Students
+-   Camille FOUR
+-   Huiting FENG
 Requirements: 
 ```
 https://github.com/pascalito007/efrei-cloud-bigdata/tree/master/capstone-project
@@ -39,18 +41,20 @@ From the above architecture on AWS, we can analyze those components as below:
 
 
 ## 1-2. Steps of APP deployment on AWS
+There are three versions while trying to deploy the APP and the final version is version 3 where the application is successfully deployed. The version 1 is our first try but a problem related to download MySQL was happened, so we cannot go further to deploy this application. The version 2 is a mix of 2 solutions, and one of the solution is following the above described architecture design. Whereas another problem is we are not familiar with the Application Loal Balancer and Auto Scaling Group etc, so this above solution was simplified by just using what we learned from the course, mainly by following the steps of challenge lab (creating a dynamic website for the Café). Since the version 2 combines a fail solution and a successful solution, a new version 3 is created to present all the final settings and the final demonstration. Below is the real final architecture design diagram used by us. The steps are general steps and all details can be seen from the folder of version3. 
 
-### 1-2-1. Setup AWS environment
+### 1-2-1. Sign in AWS environment
 1. Log in AWS account
-2. Choose Paris as region
+2. Choose Paris as region (eu-west-3)
 
-### 1-2-2. Create a VPC
-1. Create a new VPC
-2. Fill in fields 
-3. Mark down VPC ID
+### 1-2-2. Create VPC and subnets (public + private)
+1. Create a new VPC: (10.0.0.0/24)
+2. Create two subnets (public and private): here 2 more subnets are created but not being used in the final version
+3. Create one internet gateway and attach it to VPC
+4. Create route tables including one public route table (linked to VPC and public subnet(s)) and two private route tables (linked to VPC)
 
-### 1-2-3. Create a public and a private subnet
-1. Create two subnets (public and private)
+### 1-2-3. Create security groups
+1. 
 2. Fill in fields
 
 ### 1-2-4. Create an EC2 instance
