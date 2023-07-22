@@ -1,8 +1,10 @@
 # PRJ_Cloud
+
 ### Efrei Paris M1 SE1 Students
 -   Camille FOUR
 -   Huiting FENG
-Requirements: 
+
+### Requirements: 
 ```
 https://github.com/pascalito007/efrei-cloud-bigdata/tree/master/capstone-project
 ```
